@@ -1,0 +1,9 @@
+{
+  "说明": "把下面的路径改成你自己的，脚本顶部的 $v / $adb 对应这两项",
+  "工具目录": "E:\\DSH\\vision",
+  "adb路径": "D:\\MuMu模拟器\\MuMuPlayer\\nx_device\\12.0\\shell\\adb.exe",
+  "MuMuManager": "D:\\MuMu模拟器\\MuMuPlayer\\nx_main\\MuMuManager.exe",
+  "游戏包名": "com.hypergryph.arknights",
+  "分辨率": [1280, 720],
+  "默认adb端口": 16416
+}
