@@ -1,0 +1,30 @@
+{
+  "name": "dsh-arknights-stronghold",
+  "version": "0.1.0",
+  "description": "DSH plugin: Arknights Stronghold Protocol assistant — round-start inspection, grid-based operator placement with verification, tile/operator lookup. ADB screenshot + simulated touch only, never touches game files.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "scripts",
+    "data",
+    "docs",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=22",
+    "dsh": ">=0.2.1-rc.2"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "keywords": ["dsh", "dsh-plugin", "deepseek-harness", "arknights", "stronghold-protocol", "adb", "automation"],
+  "license": "MIT"
+}
