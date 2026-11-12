@@ -84,6 +84,31 @@ adb connect 127.0.0.1:16416
 adb devices
 ```
 
+### 4. 多开实例（容易踩的坑）
+
+MuMu 多开时**每个实例有自己的 adb 端口**，用的不是同一个：
+
+| 实例 | 默认名 | adb 端口 |
+|---|---|---|
+| 0 | MuMu安卓设备 | 16384 |
+| 1 | MuMu安卓设备-1 | 16416 |
+
+查当前实例端口（最可靠）：
+
+```powershell
+& "D:\MuMu模拟器\MuMuPlayer\nx_main\MuMuManager.exe" info -v 1
+# 看返回 JSON 里的 adb_port
+```
+
+**症状**：工具端口和 `adb-port.txt` 都指向实例 0，但游戏开在实例 1 上 →
+截图是全黑的、点击没反应、`adb devices` 里那个设备 `offline`。
+
+**修法**：把端口对齐到实际开游戏的那个实例，并确认 `adb connect` 后显示 `device` 而不是 `offline`。
+另外，没有 root 的实例照样能用（`input` 权限普通 shell 就有），别为了 root 去换实例。
+
+> 截图尺寸要以 `screencap` 出来的图为准：有的实例 `wm size` 报 720×1280（竖屏物理），
+> 但方舟是横屏渲染，实际截出来是 **1280×720**，网格坐标按截图的 1280×720 算。
+
 ---
 
 ## 快速开始
